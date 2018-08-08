@@ -1,0 +1,11 @@
+.md-sidenav {
+  width: 240px;
+}
+
+.md-app-container{
+  overflow: auto;
+}
+
+.md-app-content{
+  overflow: auto;
+}

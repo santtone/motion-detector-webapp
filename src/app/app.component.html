@@ -1,10 +1,22 @@
-<div>
-  <h1>
-    {{title}}
-  </h1>
-  <button (click)="sendMessage()">Send</button>
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav mode="over" class="md-sidenav">
+    Sidenav
+  </mat-sidenav>
+  <mat-sidenav-content fxFlexFill style="overflow: hidden">
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Motion Detector</span>
+    </mat-toolbar>
+    <div class="md-app-container" fxFlexFill>
+      <div class="md-app-content">
+        <md-gallery></md-gallery>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-  <div style="overflow: auto">
-    <md-gallery></md-gallery>
-  </div>
-</div>
+
+
+

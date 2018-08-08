@@ -9,7 +9,10 @@ import {WebPushModule} from './web-push/web-push.module';
 import {WebPushService} from './web-push/services/web-push.service';
 import {FileService} from './gallery/services/file.service';
 import {FileHttpService} from './gallery/services/file-http.service';
-import { GalleryComponent } from './gallery/gallery.component';
+import {GalleryComponent} from './gallery/gallery.component';
+import {FormsModule} from '@angular/forms';
+import {MaterialDesignModule} from './config/material-design.module';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,11 @@ import { GalleryComponent } from './gallery/gallery.component';
     GalleryComponent
   ],
   imports: [
+    MaterialDesignModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    FlexLayoutModule,
     HttpClientModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     WebPushModule

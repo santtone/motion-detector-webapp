@@ -9,6 +9,7 @@ import {WebPushService} from './web-push/services/web-push.service';
 })
 export class AppComponent implements OnInit {
   title = 'Web Push';
+  sidenavOpened: false;
 
   constructor(private swUtils: SwUtilsService, private pushService: WebPushService) {
   }
