@@ -126,5 +126,10 @@
       }
     }
   },
-  "defaultProject": "motion-detector"
+  "defaultProject": "motion-detector",
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false
+    }
+  }
 }
