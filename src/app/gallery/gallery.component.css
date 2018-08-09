@@ -1,0 +1,27 @@
+.md-gallery-container {
+  padding: 12px;
+}
+
+.md-gallery-group-container {
+  margin-left: 24px;
+}
+
+.md-gallery-group-title {
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-top: 24px;
+  position: relative;
+}
+
+.md-gallery-image-container {
+  text-align: center;
+}
+
+.md-image-text {
+  font-size: 11px;
+  position: absolute;
+  bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 3px;
+}

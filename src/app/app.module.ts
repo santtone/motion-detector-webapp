@@ -15,12 +15,14 @@ import {MaterialDesignModule} from './config/material-design.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { FileComponent } from './gallery/file/file.component';
 import {AppRoutingModule} from './config/routing/app-routing.module';
+import { CameraComponent } from './camera/camera.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
-    FileComponent
+    FileComponent,
+    CameraComponent
   ],
   imports: [
     MaterialDesignModule,

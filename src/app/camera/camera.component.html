@@ -1,0 +1,16 @@
+<div class="md-camera-container" fxLayout="column" fxFlexFill fxLayoutAlign="center center">
+  <video controls fxFlex>
+    <source src="https://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" type="video/mp4">
+  </video>
+  <div fxLayout="row" class="md-camera-bottom-actions" fxLayoutAlign="center center" fxLayoutGap="26px">
+    <button mat-icon-button>
+      <mat-icon>tune</mat-icon>
+    </button>
+    <button mat-fab color="accent">
+      <mat-icon>camera</mat-icon>
+    </button>
+    <button mat-icon-button (click)="goToGallery()">
+      <mat-icon>photo_library</mat-icon>
+    </button>
+  </div>
+</div>
