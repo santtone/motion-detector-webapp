@@ -1,4 +1,11 @@
-<div *ngFor="let file of files">
-  <img [src]="file.thumbnailLink">
-  <p>{{file.id}}</p>
+<div *ngFor="let date of groupDates">
+  {{date | date: 'dd.MM.yyyy'}}
+  <mat-grid-list [gutterSize]="'12px'" [cols]="columnCount" [rowHeight]="'2:1'">
+    <mat-grid-tile *ngFor="let file of groupedFiles[date]">
+      <div (click)="onFileSelect(file)">
+        <img [src]="file.thumbnailLink">
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>
+

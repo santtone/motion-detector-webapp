@@ -13,11 +13,14 @@ import {GalleryComponent} from './gallery/gallery.component';
 import {FormsModule} from '@angular/forms';
 import {MaterialDesignModule} from './config/material-design.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { FileComponent } from './gallery/file/file.component';
+import {AppRoutingModule} from './config/routing/app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GalleryComponent
+    GalleryComponent,
+    FileComponent
   ],
   imports: [
     MaterialDesignModule,
@@ -25,6 +28,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     BrowserAnimationsModule,
     FormsModule,
     FlexLayoutModule,
+    AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     WebPushModule

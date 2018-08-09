@@ -1,0 +1,10 @@
+<div *ngIf="file" fxFlexFill>
+  {{file.name}}
+  <div fxLayout="column" fxFlexFill fxLayoutAlign="center center">
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <img [src]="file.link" (load)="isLoading = false">
+  </div>
+</div>
+<div *ngIf="!file" fxFlexFill fxLayoutAlign="center center">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+</div>

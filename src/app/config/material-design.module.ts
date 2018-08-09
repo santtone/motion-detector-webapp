@@ -1,12 +1,24 @@
 import {NgModule} from '@angular/core';
-import {MatButtonModule, MatCommonModule, MatIconModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCommonModule,
+  MatGridListModule,
+  MatIconModule,
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
+import {LayoutModule} from '@angular/cdk/layout';
 
 const modules = [
   MatToolbarModule,
   MatSidenavModule,
   MatButtonModule,
   MatIconModule,
-  MatCommonModule
+  MatCommonModule,
+  MatGridListModule,
+  MatProgressSpinnerModule,
+  LayoutModule
 ];
 
 @NgModule({

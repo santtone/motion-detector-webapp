@@ -2,10 +2,12 @@
   width: 240px;
 }
 
-.md-app-container{
+.md-app-container {
   overflow: auto;
+  height: calc(100% - 64px);
 }
 
-.md-app-content{
-  overflow: auto;
+.md-app-content {
+  height: calc(100% - 58px);
+  padding-top: 12px;
 }
