@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {groupBy as _groupBy} from 'lodash';
 import {ToolbarService} from '../toolbar/toolbar.service';
 import {ToolbarOptions} from '../toolbar/toolbar-options';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'md-gallery',
@@ -18,6 +19,7 @@ export class GalleryComponent implements OnInit {
   groupedFiles: any;
   columnCount: number;
   groupDates: any;
+  isLoading: boolean;
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver, private mediaMatcher: MediaMatcher,
               private fileService: FileService, private toolbar: ToolbarService) {
@@ -44,15 +46,18 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
     this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Gallery'));
-    this.fileService.getFiles().subscribe((files: File[]) => {
-      this.files = files;
-      this.groupedFiles = _groupBy(this.files, (f: File) => {
-        const d = new Date(f.date);
-        return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    this.isLoading = true;
+    this.fileService.getFiles()
+      .pipe(finalize(() => this.isLoading = false))
+      .subscribe((files: File[]) => {
+        this.files = files;
+        this.groupedFiles = _groupBy(this.files, (f: File) => {
+          const d = new Date(f.date);
+          return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+        });
+        this.groupDates = Object.keys(this.groupedFiles);
+        console.log(this.groupDates);
       });
-      this.groupDates = Object.keys(this.groupedFiles);
-      console.log(this.groupDates);
-    });
   }
 
   onFileSelect(file: File) {

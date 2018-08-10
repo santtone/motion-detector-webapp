@@ -1,14 +1,23 @@
-<div *ngFor="let date of groupDates" class="md-gallery-container">
-  <div class="md-gallery-group-title">
-    {{date | date: 'dd.MM.yyyy'}}
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="accent"></mat-progress-bar>
+<div *ngIf="files.length">
+  <div *ngFor="let date of groupDates" class="md-gallery-container">
+    <div class="md-gallery-group-title">
+      {{date | date: 'dd.MM.yyyy'}}
+    </div>
+    <mat-grid-list [gutterSize]="'12px'" [cols]="columnCount" [rowHeight]="'2:1'" class="md-gallery-group-container">
+      <mat-grid-tile *ngFor="let file of groupedFiles[date]" class="md-gallery-image-container">
+        <div (click)="onFileSelect(file)">
+          <img [src]="file.thumbnailLink">
+        </div>
+        <span class="md-image-text">{{file.date | date: 'hh:mm'}}</span>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
-  <mat-grid-list [gutterSize]="'12px'" [cols]="columnCount" [rowHeight]="'2:1'" class="md-gallery-group-container">
-    <mat-grid-tile *ngFor="let file of groupedFiles[date]" class="md-gallery-image-container">
-      <div (click)="onFileSelect(file)">
-        <img [src]="file.thumbnailLink">
-      </div>
-      <span class="md-image-text">{{file.date | date: 'hh:mm'}}</span>
-    </mat-grid-tile>
-  </mat-grid-list>
+</div>
+<div *ngIf="!files.length" fxLayout="column" fxLayoutAlign="center center" fxFlexFill
+     class="md-gallery-no-files-container">
+  <mat-icon class="md-gallery-no-files-icon">photo_library</mat-icon>
+  <br>
+  Nothing To See!
 </div>
 

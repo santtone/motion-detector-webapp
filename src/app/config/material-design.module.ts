@@ -3,7 +3,7 @@ import {
   MatButtonModule,
   MatCommonModule,
   MatGridListModule,
-  MatIconModule,
+  MatIconModule, MatProgressBarModule,
   MatProgressSpinnerModule,
   MatSidenavModule,
   MatToolbarModule
@@ -18,6 +18,7 @@ const modules = [
   MatCommonModule,
   MatGridListModule,
   MatProgressSpinnerModule,
+  MatProgressBarModule,
   LayoutModule
 ];
 
