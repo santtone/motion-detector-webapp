@@ -13,16 +13,18 @@ import {GalleryComponent} from './gallery/gallery.component';
 import {FormsModule} from '@angular/forms';
 import {MaterialDesignModule} from './config/material-design.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { FileComponent } from './gallery/file/file.component';
+import {FileComponent} from './gallery/file/file.component';
 import {AppRoutingModule} from './config/routing/app-routing.module';
-import { CameraComponent } from './camera/camera.component';
+import {CameraComponent} from './camera/camera.component';
+import {ToolbarComponent} from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GalleryComponent,
     FileComponent,
-    CameraComponent
+    CameraComponent,
+    ToolbarComponent
   ],
   imports: [
     MaterialDesignModule,

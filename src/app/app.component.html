@@ -3,12 +3,7 @@
     Sidenav
   </mat-sidenav>
   <mat-sidenav-content fxFlexFill style="overflow: hidden">
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Motion Detector</span>
-    </mat-toolbar>
+    <md-toolbar (menuClick)="sidenav.toggle()"></md-toolbar>
     <div class="md-app-container">
       <div class="md-app-content">
         <router-outlet fxFlexFill></router-outlet>

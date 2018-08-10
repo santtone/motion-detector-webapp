@@ -4,6 +4,8 @@ import {File} from './file/file';
 import {BreakpointObserver, Breakpoints, MediaMatcher} from '@angular/cdk/layout';
 import {Router} from '@angular/router';
 import {groupBy as _groupBy} from 'lodash';
+import {ToolbarService} from '../toolbar/toolbar.service';
+import {ToolbarOptions} from '../toolbar/toolbar-options';
 
 @Component({
   selector: 'md-gallery',
@@ -18,7 +20,7 @@ export class GalleryComponent implements OnInit {
   groupDates: any;
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver, private mediaMatcher: MediaMatcher,
-              private fileService: FileService) {
+              private fileService: FileService, private toolbar: ToolbarService) {
     this.files = [];
     this.columnCount = 1;
     breakpointObserver.observe([
@@ -41,6 +43,7 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Gallery'));
     this.fileService.getFiles().subscribe((files: File[]) => {
       this.files = files;
       this.groupedFiles = _groupBy(this.files, (f: File) => {
