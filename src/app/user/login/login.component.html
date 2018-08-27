@@ -1,0 +1,20 @@
+<div fxFlexFill fxLayoutAlign="center center">
+  <div class="md-login-top"></div>
+  <div class="md-login-bottom"></div>
+  <mat-card class="md-login-card-container">
+    <div fxLayout="column" fxLayoutAlign="start center">
+      <mat-icon svgIcon="shield" class="md-login-card-icon"></mat-icon>
+      <br>
+      <mat-form-field>
+        <input matInput type="text" required placeholder="Username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" required placeholder="Password">
+      </mat-form-field>
+      <br>
+      <button mat-button (click)="login()">
+        Login<mat-icon fxFill>navigate_next</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+</div>

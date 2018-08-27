@@ -1,0 +1,37 @@
+.md-login-container {
+  background: #E0E0E0;
+}
+
+.md-login-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 50%;
+  background-image: url("../../../assets/black.png");
+}
+
+.md-login-bottom {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #E0E0E0;
+}
+
+.md-login-card-container {
+  min-width: 230px;
+  max-width: 400px;
+  width: 360px;
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.md-login-card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: black;
+  padding: 16px;
+}

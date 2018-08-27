@@ -17,6 +17,8 @@ import {FileComponent} from './gallery/file/file.component';
 import {AppRoutingModule} from './config/routing/app-routing.module';
 import {CameraComponent} from './camera/camera.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
+import { SafeUrlPipe } from './utils/safe-url.pipe';
+import {UserModule} from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
     GalleryComponent,
     FileComponent,
     CameraComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    SafeUrlPipe
   ],
   imports: [
     MaterialDesignModule,
@@ -35,7 +38,8 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
-    WebPushModule
+    WebPushModule,
+    UserModule
   ],
   providers: [
     WebPushService,

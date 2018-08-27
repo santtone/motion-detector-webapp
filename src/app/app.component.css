@@ -4,7 +4,8 @@
 
 .md-app-container {
   overflow: auto;
-  height: calc(100% - 64px);
+  height: 100%;
+  /*height: calc(100% - 64px);*/
 }
 
 .md-app-content {

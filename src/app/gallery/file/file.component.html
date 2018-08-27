@@ -1,10 +1,10 @@
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="accent"></mat-progress-bar>
 <div *ngIf="file" fxFlexFill>
   {{file.name}}
   <div fxLayout="column" fxFlexFill fxLayoutAlign="center center">
-    <mat-spinner *ngIf="isLoading"></mat-spinner>
-    <img [src]="file.link" (load)="isLoading = false">
+    <img *ngIf="file && file.mimeType === 'image/jpeg'" [src]="file.link" (load)="isLoading = false">
+    <video *ngIf="file && file.mimeType === 'video/mp4'" (loadeddata)="isLoading = false" controls autoplay>
+      <source [src]="file.link" [type]="file.mimeType">
+    </video>
   </div>
-</div>
-<div *ngIf="!file" fxFlexFill fxLayoutAlign="center center">
-  <mat-spinner *ngIf="isLoading"></mat-spinner>
 </div>

@@ -56,7 +56,6 @@ export class GalleryComponent implements OnInit {
           return new Date(d.getFullYear(), d.getMonth(), d.getDate());
         });
         this.groupDates = Object.keys(this.groupedFiles);
-        console.log(this.groupDates);
       });
   }
 

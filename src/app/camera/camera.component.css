@@ -7,3 +7,7 @@
   height: 100px;
   color: white;
 }
+
+.md-camera-stream{
+  border: 1px solid #303030;
+}
