@@ -10,15 +10,11 @@ import {MatIconRegistry} from '@angular/material';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Web Push';
-  sidenavOpened: false;
 
   constructor(private swUtils: SwUtilsService, private pushService: WebPushService,
               iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon('shield', sanitizer.bypassSecurityTrustResourceUrl('assets/shield.svg'));
     iconRegistry.addSvgIcon('unlock', sanitizer.bypassSecurityTrustResourceUrl('assets/unlock.svg'));
-
-
   }
 
   ngOnInit(): void {
@@ -29,6 +25,5 @@ export class AppComponent implements OnInit {
   sendMessage() {
     this.pushService.sendMessage('Testing Web Push').subscribe();
   }
-
 
 }

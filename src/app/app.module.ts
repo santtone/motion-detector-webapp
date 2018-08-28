@@ -4,7 +4,7 @@ import {AppComponent} from './app.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {WebPushModule} from './web-push/web-push.module';
 import {WebPushService} from './web-push/services/web-push.service';
 import {FileService} from './gallery/services/file.service';
@@ -19,6 +19,8 @@ import {CameraComponent} from './camera/camera.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import { SafeUrlPipe } from './utils/safe-url.pipe';
 import {UserModule} from './user/user.module';
+import {HttpAuthInterceptor} from './authentication/http-auth-interceptor';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {UserModule} from './user/user.module';
     FileComponent,
     CameraComponent,
     ToolbarComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    AppLayoutComponent
   ],
   imports: [
     MaterialDesignModule,
@@ -44,7 +47,12 @@ import {UserModule} from './user/user.module';
   providers: [
     WebPushService,
     FileService,
-    FileHttpService
+    FileHttpService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpAuthInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

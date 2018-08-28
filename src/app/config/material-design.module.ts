@@ -3,7 +3,7 @@ import {
   MatButtonModule, MatCardModule,
   MatCommonModule,
   MatGridListModule,
-  MatIconModule, MatInputModule, MatProgressBarModule,
+  MatIconModule, MatInputModule, MatListModule, MatProgressBarModule,
   MatProgressSpinnerModule,
   MatSidenavModule,
   MatToolbarModule
@@ -21,7 +21,8 @@ const modules = [
   MatProgressBarModule,
   LayoutModule,
   MatCardModule,
-  MatInputModule
+  MatInputModule,
+  MatListModule
 ];
 
 @NgModule({

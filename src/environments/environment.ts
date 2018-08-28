@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  endpointUrl: 'https://localhost:44333/api'
+  endpointUrl: 'https://localhost:44333/api',
+  tokenKey: 'md-token'
 };
 
 /*

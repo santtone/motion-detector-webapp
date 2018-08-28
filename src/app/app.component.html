@@ -1,15 +1,1 @@
-<mat-sidenav-container fxFlexFill>
-  <mat-sidenav #sidenav mode="over" class="md-sidenav">
-    Sidenav
-  </mat-sidenav>
-  <mat-sidenav-content fxFlexFill style="overflow: hidden">
-    <md-toolbar (menuClick)="sidenav.toggle()"></md-toolbar>
-    <div class="md-app-container">
-      <div class="md-app-content">
-        <router-outlet fxFlexFill></router-outlet>
-      </div>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-
+<router-outlet></router-outlet>

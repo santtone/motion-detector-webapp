@@ -1,0 +1,21 @@
+.md-sidenav {
+  width: 240px;
+}
+
+.md-sidenav-avatar {
+  width: 96px;
+  height: 96px;
+  font-size: 96px;
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.md-sidenav-username{
+  padding-left: 12px;
+}
+
+.md-app-container {
+  overflow: auto;
+  height: 100%;
+}

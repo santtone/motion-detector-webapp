@@ -3,6 +3,7 @@ import {GalleryComponent} from '../../gallery/gallery.component';
 import {FileComponent} from '../../gallery/file/file.component';
 import {CameraComponent} from '../../camera/camera.component';
 import {LoginComponent} from '../../user/login/login.component';
+import {AppLayoutComponent} from '../../app-layout/app-layout.component';
 
 export const routes: Routes = [
   {
@@ -15,15 +16,21 @@ export const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'camera',
-    component: CameraComponent
-  },
-  {
-    path: 'gallery',
-    component: GalleryComponent
-  },
-  {
-    path: 'gallery/:id',
-    component: FileComponent
+    path: 'md',
+    component: AppLayoutComponent,
+    children: [
+      {
+        path: 'camera',
+        component: CameraComponent
+      },
+      {
+        path: 'gallery',
+        component: GalleryComponent
+      },
+      {
+        path: 'gallery/:id',
+        component: FileComponent
+      }
+    ]
   }
 ];

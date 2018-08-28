@@ -18,7 +18,7 @@ export class CameraComponent implements OnInit {
   }
 
   goToGallery() {
-    this.router.navigate(['gallery']);
+    this.router.navigate(['md/gallery']);
   }
 
 }

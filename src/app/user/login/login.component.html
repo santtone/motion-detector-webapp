@@ -6,14 +6,18 @@
       <mat-icon svgIcon="shield" class="md-login-card-icon"></mat-icon>
       <br>
       <mat-form-field>
-        <input matInput type="text" required placeholder="Username">
+        <input matInput [(ngModel)]="user.username"
+               id="username" mdMoveOnEnter="password" type="text" required placeholder="Username">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="password" required placeholder="Password">
+        <input matInput [(ngModel)]="user.password"
+               id="password" mdMoveOnEnter="submit"
+               type="password" required placeholder="Password">
       </mat-form-field>
       <br>
-      <button mat-button (click)="login()">
-        Login<mat-icon fxFill>navigate_next</mat-icon>
+      <button mat-button (click)="logIn()" id="submit">
+        Login
+        <mat-icon fxFill>navigate_next</mat-icon>
       </button>
     </div>
   </mat-card>
