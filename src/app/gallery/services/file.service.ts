@@ -15,8 +15,8 @@ export class FileService {
     this.files = [];
   }
 
-  getFiles(): Observable<File[]> {
-    if (this.files.length > 0) {
+  getFiles(reload?: boolean): Observable<File[]> {
+    if (!reload && this.files.length > 0) {
       return of(this.files);
     }
     return this.httpService.get().pipe(map((files: File[]) => {
@@ -33,5 +33,9 @@ export class FileService {
       }));
     }
     return of(found);
+  }
+
+  deleteAllFiles(): Observable<any> {
+    return this.httpService.deleteAll();
   }
 }

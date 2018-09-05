@@ -1,12 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FileService} from './services/file.service';
 import {File} from './file/file';
 import {BreakpointObserver, Breakpoints, MediaMatcher} from '@angular/cdk/layout';
 import {Router} from '@angular/router';
 import {groupBy as _groupBy} from 'lodash';
-import {ToolbarService} from '../toolbar/toolbar.service';
-import {ToolbarOptions} from '../toolbar/toolbar-options';
+import {ToolbarService} from '../app-layout/toolbar/toolbar.service';
+import {ToolbarOptions} from '../app-layout/toolbar/toolbar-options';
 import {finalize} from 'rxjs/operators';
+import {ToolbarAction} from '../app-layout/toolbar/toolbar-action';
+import {MatMenu, MatMenuTrigger} from '@angular/material';
 
 @Component({
   selector: 'md-gallery',
@@ -20,6 +22,8 @@ export class GalleryComponent implements OnInit {
   columnCount: number;
   groupDates: any;
   isLoading: boolean;
+
+  @ViewChild('galleryMenu') menu: MatMenu;
 
   constructor(private router: Router, private breakpointObserver: BreakpointObserver, private mediaMatcher: MediaMatcher,
               private fileService: FileService, private toolbar: ToolbarService) {
@@ -45,9 +49,21 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Gallery'));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Gallery', [
+      new ToolbarAction(this.reloadFiles.bind(this), 'refresh'),
+      new ToolbarAction(() => {
+      }, 'more_vert', this.menu)
+    ]));
+    this.reloadFiles();
+  }
+
+  onFileSelect(file: File) {
+    this.router.navigate(['/md/gallery', file.id]);
+  }
+
+  reloadFiles() {
     this.isLoading = true;
-    this.fileService.getFiles()
+    this.fileService.getFiles(true)
       .pipe(finalize(() => this.isLoading = false))
       .subscribe((files: File[]) => {
         this.files = files;
@@ -59,8 +75,8 @@ export class GalleryComponent implements OnInit {
       });
   }
 
-  onFileSelect(file: File) {
-    this.router.navigate(['/md/gallery', file.id]);
+  deleteFiles() {
+    this.fileService.deleteAllFiles().subscribe(() => this.reloadFiles());
   }
 
 }

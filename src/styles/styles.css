@@ -22,6 +22,7 @@ Override angular material styles
 .material-icons {
   font-family: 'Material Icons', serif;
   font-size: 24px;
+  line-height: 100%;
 }
 
 .md-dark-backdrop{

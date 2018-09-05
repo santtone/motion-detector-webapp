@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FileService} from '../services/file.service';
 import {ActivatedRoute} from '@angular/router';
 import {File} from './file';
-import {ToolbarService} from '../../toolbar/toolbar.service';
-import {ToolbarOptions} from '../../toolbar/toolbar-options';
+import {ToolbarService} from '../../app-layout/toolbar/toolbar.service';
+import {ToolbarOptions} from '../../app-layout/toolbar/toolbar-options';
 
 @Component({
   selector: 'md-file',

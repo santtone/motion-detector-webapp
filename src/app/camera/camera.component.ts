@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
-import {ToolbarService} from '../toolbar/toolbar.service';
-import {ToolbarOptions} from '../toolbar/toolbar-options';
+import {ToolbarService} from '../app-layout/toolbar/toolbar.service';
+import {ToolbarOptions} from '../app-layout/toolbar/toolbar-options';
 import {CameraService} from './services/camera.service';
 import {StreamToken} from './stream-token';
 import {environment} from '../../environments/environment';

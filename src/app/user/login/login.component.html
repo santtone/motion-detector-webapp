@@ -2,7 +2,8 @@
   <div class="md-login-top"></div>
   <div class="md-login-bottom"></div>
   <mat-card class="md-login-card-container">
-    <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="accent" class="md-login-progress-bar"></mat-progress-bar>
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="accent"
+                      class="md-login-progress-bar"></mat-progress-bar>
     <div fxLayout="column" fxLayoutAlign="start center">
       <mat-icon svgIcon="shield" class="md-login-card-icon"></mat-icon>
       <br>
@@ -16,9 +17,10 @@
                type="password" required placeholder="Password">
       </mat-form-field>
       <br>
-      <button mat-button (click)="logIn()" id="submit" [disabled]="isLoading || !credentials.username || !credentials.password">
+      <button mat-button (click)="logIn()" id="submit"
+              [disabled]="isLoading || !credentials.username || !credentials.password">
         Login
-        <mat-icon style="height: 100%">navigate_next</mat-icon>
+        <mat-icon>navigate_next</mat-icon>
       </button>
     </div>
   </mat-card>

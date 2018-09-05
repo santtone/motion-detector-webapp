@@ -1,4 +1,10 @@
 <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="accent"></mat-progress-bar>
+<mat-menu #galleryMenu="matMenu">
+  <button mat-menu-item (click)="deleteFiles()">
+    <mat-icon>delete</mat-icon>
+    <span>Poista kaikki</span>
+  </button>
+</mat-menu>
 <div *ngIf="files.length">
   <div *ngFor="let date of groupDates" class="md-gallery-container">
     <div class="md-gallery-group-title">

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ToolbarService} from '../../toolbar/toolbar.service';
+import {ToolbarService} from '../../app-layout/toolbar/toolbar.service';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {User} from '../user';

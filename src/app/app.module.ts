@@ -16,7 +16,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {FileComponent} from './gallery/file/file.component';
 import {AppRoutingModule} from './config/routing/app-routing.module';
 import {CameraComponent} from './camera/camera.component';
-import {ToolbarComponent} from './toolbar/toolbar.component';
+import {ToolbarComponent} from './app-layout/toolbar/toolbar.component';
 import {SafeUrlPipe} from './utils/safe-url.pipe';
 import {UserModule} from './user/user.module';
 import {HttpAuthInterceptor} from './authentication/http-auth-interceptor';

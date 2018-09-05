@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" *ngIf="!options.hidden">
+  <button *ngIf="!options.backEnabled" mat-icon-button (click)="onMenuClick()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button *ngIf="options.backEnabled" mat-icon-button (click)="onNavigateBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span fxFlex>{{options.title}}</span>
+  <div *ngFor="let action of options.actions">
+
+    <ng-container
+      *ngIf="!action.menuToBeTriggered; then normalAction; else triggerAction">
+    </ng-container>
+    <ng-template #normalAction>
+      <button mat-icon-button (click)="action.runAction()">
+        <mat-icon>{{action.icon}}</mat-icon>
+      </button>
+    </ng-template>
+    <ng-template #triggerAction>
+      <button mat-icon-button [matMenuTriggerFor]="action.menuToBeTriggered">
+        <mat-icon>{{action.icon}}</mat-icon>
+      </button>
+    </ng-template>
+
+  </div>
+</mat-toolbar>

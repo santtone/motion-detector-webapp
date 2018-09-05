@@ -23,4 +23,8 @@ export class FileHttpService {
       )
     );
   }
+
+  deleteAll(): Observable<any> {
+    return this.http.delete(`${this.url}/drive/all`);
+  }
 }
