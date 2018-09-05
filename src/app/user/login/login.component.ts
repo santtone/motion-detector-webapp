@@ -11,10 +11,13 @@ import {User} from '../user';
 })
 export class LoginComponent implements OnInit {
 
-  user: User;
+  credentials: any;
 
   constructor(private router: Router, private toolbar: ToolbarService, private userService: UserService) {
-    this.user = new User();
+    this.credentials = {
+      username: '',
+      password: ''
+    };
   }
 
   ngOnInit() {
@@ -22,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
-    this.userService.logIn(this.user.username, this.user.password).subscribe(() => {
+    this.userService.logIn(this.credentials.username, this.credentials.password).subscribe(() => {
       this.router.navigate(['md/camera']);
     });
   }

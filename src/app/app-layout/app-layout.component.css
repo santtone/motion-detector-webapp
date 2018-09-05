@@ -1,18 +1,16 @@
 .md-sidenav {
-  width: 240px;
+  width: 220px;
 }
 
 .md-sidenav-avatar {
   width: 96px;
   height: 96px;
   font-size: 96px;
-  margin-top: 16px;
-  margin-left: 16px;
-  margin-right: 16px;
+  margin: 16px 16px 8px;
 }
 
 .md-sidenav-username{
-  padding-left: 12px;
+  padding-left: 26px;
 }
 
 .md-app-container {

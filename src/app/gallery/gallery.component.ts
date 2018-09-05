@@ -45,7 +45,7 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Gallery'));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Gallery'));
     this.isLoading = true;
     this.fileService.getFiles()
       .pipe(finalize(() => this.isLoading = false))
@@ -60,7 +60,7 @@ export class GalleryComponent implements OnInit {
   }
 
   onFileSelect(file: File) {
-    this.router.navigate(['/gallery', file.id]);
+    this.router.navigate(['/md/gallery', file.id]);
   }
 
 }

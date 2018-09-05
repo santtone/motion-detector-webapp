@@ -1,24 +1,32 @@
 <mat-sidenav-container fxFlexFill>
   <mat-sidenav #sidenav mode="over" class="md-sidenav">
-    <div fxLayout="column" fxFlexFill>
-      <mat-icon class="md-sidenav-avatar">account_circle</mat-icon>
-      <div class="md-sidenav-username">
-        {{user.username}}
+    <div fxLayout="column" fxFlexFill fxLayoutGap="24px">
+      <div fxLayout="column">
+        <mat-icon class="md-sidenav-avatar">account_circle</mat-icon>
+        <div class="md-sidenav-username">
+          {{user.username}}
+        </div>
       </div>
       <div fxFlex>
         <mat-nav-list>
-          <a mat-list-item (click)="click">
-            <mat-icon>camera</mat-icon>
-            Gallery
+          <a mat-list-item (click)="navigateToCamera()">
+            <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="center center">
+              <mat-icon>camera</mat-icon>
+              <div>Camera</div>
+            </div>
           </a>
-
-          <a mat-list-item (click)="click">
-            <mat-icon>photo_library</mat-icon>
-            Gallery
+          <a mat-list-item (click)="navigateToGallery()">
+            <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="center center">
+              <mat-icon>photo_library</mat-icon>
+              <div>Gallery</div>
+              s
+            </div>
           </a>
-          <a mat-list-item (click)="click">
-            <mat-icon>power_settings_new</mat-icon>
-            Log out
+          <a mat-list-item (click)="logOut()">
+            <div fxLayout="row" fxLayoutGap="12px" fxLayoutAlign="center center">
+              <mat-icon>power_settings_new</mat-icon>
+              <div>Log out</div>
+            </div>
           </a>
         </mat-nav-list>
       </div>

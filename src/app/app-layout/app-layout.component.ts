@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from '../user/user';
 import {UserService} from '../user/services/user.service';
+import {Router} from '@angular/router';
+import {MatSidenav} from '@angular/material';
 
 @Component({
   selector: 'md-app-layout',
@@ -10,13 +12,29 @@ import {UserService} from '../user/services/user.service';
 export class AppLayoutComponent implements OnInit {
 
   user: User;
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
-  constructor(private userService: UserService) {
+  constructor(private router: Router, private userService: UserService) {
     this.user = new User();
   }
 
   ngOnInit() {
-    this.userService.user.subscribe((user: User) => this.user = user);
+    this.userService.getUser().subscribe((user: User) => this.user = user);
+  }
+
+  navigateToCamera() {
+    this.router.navigate(['md/camera']);
+    this.sidenav.close();
+  }
+
+  navigateToGallery() {
+    this.router.navigate(['md/gallery']);
+    this.sidenav.close();
+  }
+
+  logOut() {
+    this.router.navigate(['login']);
+    this.userService.logOut();
   }
 
 }

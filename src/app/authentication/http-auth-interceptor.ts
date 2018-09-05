@@ -25,8 +25,7 @@ export class HttpAuthInterceptor implements HttpInterceptor {
     const req = request.clone();
     let event: Observable<HttpEvent<any>>;
     const token = this.authenticationService.getToken();
-    const useToken = request.url.startsWith(environment.endpointUrl);
-    if (token && useToken) {
+    if (token) {
       event = next.handle(HttpAuthInterceptor.requestWithAuthorizationHeader(req, token));
     } else {
       event = next.handle(req);

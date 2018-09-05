@@ -21,6 +21,8 @@ import { SafeUrlPipe } from './utils/safe-url.pipe';
 import {UserModule} from './user/user.module';
 import {HttpAuthInterceptor} from './authentication/http-auth-interceptor';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
+import {CameraService} from './camera/services/camera.service';
+import {CameraHttpService} from './camera/services/camera-http.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     WebPushService,
     FileService,
     FileHttpService,
+    CameraService,
+    CameraHttpService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAuthInterceptor,

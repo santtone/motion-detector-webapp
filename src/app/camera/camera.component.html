@@ -1,6 +1,6 @@
 <div class="md-camera-container" fxLayout="column" fxFlexFill fxLayoutAlign="center center">
   <div fxFlex fxLayoutAlign="center center">
-    <img class="md-camera-stream" [src]="'https://remanent-liger-7850.dataplicity.io/stream'">
+    <img *ngIf="streamUrl" [src]="streamUrl" class="md-camera-stream">
   </div>
   <div fxLayout="row" class="md-camera-bottom-actions" fxLayoutAlign="center center" fxLayoutGap="26px">
     <button mat-icon-button>

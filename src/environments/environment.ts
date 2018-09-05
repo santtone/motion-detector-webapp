@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  streamProxyUrl: 'https://localhost:44333/stream',
   endpointUrl: 'https://localhost:44333/api',
   tokenKey: 'md-token'
 };

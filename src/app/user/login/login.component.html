@@ -6,11 +6,11 @@
       <mat-icon svgIcon="shield" class="md-login-card-icon"></mat-icon>
       <br>
       <mat-form-field>
-        <input matInput [(ngModel)]="user.username"
+        <input matInput [(ngModel)]="credentials.username"
                id="username" mdMoveOnEnter="password" type="text" required placeholder="Username">
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="user.password"
+        <input matInput [(ngModel)]="credentials.password"
                id="password" mdMoveOnEnter="submit"
                type="password" required placeholder="Password">
       </mat-form-field>
