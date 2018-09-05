@@ -2,22 +2,23 @@
   <div class="md-login-top"></div>
   <div class="md-login-bottom"></div>
   <mat-card class="md-login-card-container">
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="accent" class="md-login-progress-bar"></mat-progress-bar>
     <div fxLayout="column" fxLayoutAlign="start center">
       <mat-icon svgIcon="shield" class="md-login-card-icon"></mat-icon>
       <br>
       <mat-form-field>
-        <input matInput [(ngModel)]="credentials.username"
+        <input matInput [(ngModel)]="credentials.username" [disabled]="isLoading"
                id="username" mdMoveOnEnter="password" type="text" required placeholder="Username">
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="credentials.password"
+        <input matInput [(ngModel)]="credentials.password" [disabled]="isLoading"
                id="password" mdMoveOnEnter="submit"
                type="password" required placeholder="Password">
       </mat-form-field>
       <br>
-      <button mat-button (click)="logIn()" id="submit">
+      <button mat-button (click)="logIn()" id="submit" [disabled]="isLoading || !credentials.username || !credentials.password">
         Login
-        <mat-icon fxFill>navigate_next</mat-icon>
+        <mat-icon style="height: 100%">navigate_next</mat-icon>
       </button>
     </div>
   </mat-card>

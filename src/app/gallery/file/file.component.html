@@ -2,7 +2,7 @@
 <div *ngIf="file" fxFlexFill>
   <div fxLayout="column" fxFlexFill fxLayoutAlign="center center">
     <img *ngIf="file && file.mimeType === 'image/jpeg'" [src]="file.link" (load)="isLoading = false">
-    <video *ngIf="file && file.mimeType === 'video/mp4'" (loadeddata)="isLoading = false" controls autoplay>
+    <video *ngIf="file && file.mimeType === 'video/mp4'" (loadeddata)="isLoading = false" controls autoplay class="md-video">
       <source [src]="file.link" [type]="file.mimeType">
     </video>
   </div>

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {
   MatButtonModule, MatCardModule,
-  MatCommonModule,
+  MatCommonModule, MatDialogModule,
   MatGridListModule,
   MatIconModule, MatInputModule, MatListModule, MatProgressBarModule,
   MatProgressSpinnerModule,
@@ -22,7 +22,8 @@ const modules = [
   LayoutModule,
   MatCardModule,
   MatInputModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule
 ];
 
 @NgModule({

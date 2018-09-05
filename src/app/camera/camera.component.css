@@ -9,4 +9,5 @@
 
 .md-camera-stream{
   border: 1px solid #303030;
+  max-width: 100%;
 }

@@ -2,6 +2,12 @@
   background: #E0E0E0;
 }
 
+.md-login-progress-bar{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .md-login-top {
   position: absolute;
   top: 0;

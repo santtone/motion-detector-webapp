@@ -17,12 +17,15 @@ import {FileComponent} from './gallery/file/file.component';
 import {AppRoutingModule} from './config/routing/app-routing.module';
 import {CameraComponent} from './camera/camera.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
-import { SafeUrlPipe } from './utils/safe-url.pipe';
+import {SafeUrlPipe} from './utils/safe-url.pipe';
 import {UserModule} from './user/user.module';
 import {HttpAuthInterceptor} from './authentication/http-auth-interceptor';
-import { AppLayoutComponent } from './app-layout/app-layout.component';
+import {AppLayoutComponent} from './app-layout/app-layout.component';
 import {CameraService} from './camera/services/camera.service';
 import {CameraHttpService} from './camera/services/camera-http.service';
+import {MessageDialogComponent} from './dialogs/message-dialog/message-dialog.component';
+import {DialogService} from './dialogs/dialog.service';
+import {HttpErrorInterceptor} from './config/http-error-interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import {CameraHttpService} from './camera/services/camera-http.service';
     CameraComponent,
     ToolbarComponent,
     SafeUrlPipe,
-    AppLayoutComponent
+    AppLayoutComponent,
+    MessageDialogComponent
   ],
   imports: [
     MaterialDesignModule,
@@ -52,13 +56,20 @@ import {CameraHttpService} from './camera/services/camera-http.service';
     FileHttpService,
     CameraService,
     CameraHttpService,
+    DialogService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAuthInterceptor,
       multi: true
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MessageDialogComponent]
 })
 export class AppModule {
 }

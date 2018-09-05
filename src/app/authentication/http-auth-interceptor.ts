@@ -51,7 +51,7 @@ export class HttpAuthInterceptor implements HttpInterceptor {
             return this.refreshTokenAndReSend(request, next);
           } else {
             // TODO: handle errors
-            console.log(error);
+            // console.log(error);
           }
         }
         this.tokenRefreshAttempts = 0;
