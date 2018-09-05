@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {AuthenticationService} from '../../authentication/services/authentication.service';
 import {BehaviorSubject, Observable, of as observableOf} from 'rxjs';
-import {map, mergeMap} from 'rxjs/operators';
+import {map, mergeMap, tap} from 'rxjs/operators';
 import {User} from '../user';
 import {UserHttpService} from './user-http.service';
 import * as _ from 'lodash';
+import {SwUtilsService} from '../../config/sw-utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,9 @@ export class UserService {
 
   logIn(username: string, password: string): Observable<User> {
     return this.authenticationService.authenticate(username, password)
-      .pipe(mergeMap(() => this.getUser()));
+      .pipe(
+        mergeMap(() => this.getUser())
+      );
   }
 
   logOut(): Observable<any> {

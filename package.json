@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build-raspberry": "ng build --configuration=raspberry --prod --base-href / --aot --build-optimizer=true --vendor-chunk=true --optimization=true --source-map=false",
     "build": "ng build --prod",
-    "build-sourcemaps": "ng build --source-map --prod",
+    "build-sourcemaps": "ng build --source-map --prod --configuration=raspberry",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.swUtils.checkUpdates();
-    this.swUtils.subscribeNotifications();
   }
 
   sendMessage() {
