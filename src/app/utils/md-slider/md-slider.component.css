@@ -1,0 +1,12 @@
+.md-slider-value-input{
+  text-align: center;
+}
+
+.md-slider-hint{
+  position: absolute;
+  margin-top: 34px;
+  font-size: 12px;
+  opacity: 0.6;
+  align-self: flex-end;
+  padding-right: 8px;
+}

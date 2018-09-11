@@ -12,6 +12,7 @@
             "element",
             "md",
             "kebab-case"
-        ]
+        ],
+      "triple-equals": false
     }
 }

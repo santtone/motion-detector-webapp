@@ -1,0 +1,29 @@
+<div *ngIf="motionConfig" fxLayoutAlign="center center">
+  <mat-card fxLayout="column" class="md-settings-card" fxLayoutGap="12px">
+
+    <mat-slide-toggle [(ngModel)]="motionConfig.recordMotion" color="accent">
+      Record motion
+    </mat-slide-toggle>
+    <br>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Resolution</mat-label>
+      <mat-select [(ngModel)]="selectedResolution" placeholder="Resolution" [disableOptionCentering]="false">
+        <mat-option *ngFor="let resolution of resolutions" [value]="resolution">{{resolution[0] + 'x' +
+          resolution[1]}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div fxLayout="column" fxLayoutGap.xs="28px">
+      <md-slider [title]="'Quality'" [(value)]="motionConfig.imageQuality" [min]="0" [max]="100"></md-slider>
+      <md-slider [title]="'Frame rate'" [(value)]="motionConfig.captureFrameRate" [min]="0" [max]="30"></md-slider>
+      <md-slider [title]="'Brightness'" [(value)]="motionConfig.captureBrightness" [min]="0" [max]="255"></md-slider>
+      <md-slider [title]="'Contrast'" [(value)]="motionConfig.captureContrast" [min]="0" [max]="255"></md-slider>
+    </div>
+  </mat-card>
+</div>
+
+<button mat-fab (click)="save()" class="md-fab">
+  <mat-icon>save</mat-icon>
+</button>

@@ -4,11 +4,12 @@ import {
   MatCommonModule, MatDialogModule,
   MatGridListModule,
   MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatSidenavModule,
+  MatProgressSpinnerModule, MatSelectModule,
+  MatSidenavModule, MatSliderModule, MatSlideToggleModule,
   MatToolbarModule
 } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const modules = [
   MatToolbarModule,
@@ -24,7 +25,10 @@ const modules = [
   MatInputModule,
   MatListModule,
   MatDialogModule,
-  MatMenuModule
+  MatMenuModule,
+  MatSlideToggleModule,
+  MatSelectModule,
+  MatSliderModule
 ];
 
 @NgModule({

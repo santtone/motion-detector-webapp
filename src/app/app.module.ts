@@ -26,6 +26,10 @@ import {CameraHttpService} from './camera/services/camera-http.service';
 import {MessageDialogComponent} from './dialogs/message-dialog/message-dialog.component';
 import {DialogService} from './dialogs/dialog.service';
 import {HttpErrorInterceptor} from './config/http-error-interceptor';
+import {SettingsComponent} from './settings/settings.component';
+import {SettingsService} from './settings/services/settings.service';
+import {SettingsHttpService} from './settings/services/settings-http.service';
+import { MdSliderComponent } from './utils/md-slider/md-slider.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +40,14 @@ import {HttpErrorInterceptor} from './config/http-error-interceptor';
     ToolbarComponent,
     SafeUrlPipe,
     AppLayoutComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    SettingsComponent,
+    MdSliderComponent
   ],
   imports: [
-    MaterialDesignModule,
     BrowserModule,
     BrowserAnimationsModule,
+    MaterialDesignModule,
     FormsModule,
     FlexLayoutModule,
     AppRoutingModule,
@@ -56,6 +62,8 @@ import {HttpErrorInterceptor} from './config/http-error-interceptor';
     FileHttpService,
     CameraService,
     CameraHttpService,
+    SettingsService,
+    SettingsHttpService,
     DialogService,
     {
       provide: HTTP_INTERCEPTORS,

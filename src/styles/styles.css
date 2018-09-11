@@ -1,5 +1,3 @@
-@import "../../node_modules/@angular/material/prebuilt-themes/purple-green.css";
-
 html, body {
   width: 100%;
   height: 100%;
@@ -15,6 +13,11 @@ html, body {
   src: url('../assets/material-icons.woff2')
 }
 
+.md-fab{
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+}
 
 /*
 Override angular material styles
