@@ -22,7 +22,10 @@ export const routes: Routes = [
     children: [
       {
         path: 'camera',
-        component: CameraComponent
+        component: CameraComponent,
+        data: {
+          reuse: true
+        }
       },
       {
         path: 'settings',

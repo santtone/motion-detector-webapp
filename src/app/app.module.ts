@@ -30,6 +30,8 @@ import {SettingsComponent} from './settings/settings.component';
 import {SettingsService} from './settings/services/settings.service';
 import {SettingsHttpService} from './settings/services/settings-http.service';
 import { MdSliderComponent } from './utils/md-slider/md-slider.component';
+import {RouteReuseStrategy} from '@angular/router';
+import {MdRouteReuseStrategy} from './config/routing/md-route-reuse-strategy';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,10 @@ import { MdSliderComponent } from './utils/md-slider/md-slider.component';
     SettingsService,
     SettingsHttpService,
     DialogService,
+    {
+      provide: RouteReuseStrategy,
+      useClass: MdRouteReuseStrategy
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpAuthInterceptor,

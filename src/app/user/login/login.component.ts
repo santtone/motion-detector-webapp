@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
 import {User} from '../user';
 import {finalize} from 'rxjs/operators';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'md-login',
@@ -14,9 +15,11 @@ export class LoginComponent implements OnInit {
 
   credentials: any;
   isLoading: boolean;
+  version: string;
 
   constructor(private router: Router, private toolbar: ToolbarService, private userService: UserService) {
     this.isLoading = false;
+    this.version = environment.version;
     this.credentials = {
       username: '',
       password: ''

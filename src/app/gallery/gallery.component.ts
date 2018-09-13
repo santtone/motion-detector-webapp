@@ -50,7 +50,9 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
     this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Gallery', [
-      new ToolbarAction(this.reloadFiles.bind(this), 'refresh'),
+      new ToolbarAction(function () {
+        this.reloadFiles(true);
+      }.bind(this), 'refresh'),
       new ToolbarAction(() => {
       }, 'more_vert', this.menu)
     ]));
@@ -61,9 +63,9 @@ export class GalleryComponent implements OnInit {
     this.router.navigate(['/md/gallery', file.id]);
   }
 
-  reloadFiles() {
+  reloadFiles(reload?: boolean) {
     this.isLoading = true;
-    this.fileService.getFiles(true)
+    this.fileService.getFiles(reload)
       .pipe(finalize(() => this.isLoading = false))
       .subscribe((files: File[]) => {
         this.files = files;
@@ -76,7 +78,10 @@ export class GalleryComponent implements OnInit {
   }
 
   deleteFiles() {
-    this.fileService.deleteAllFiles().subscribe(() => this.reloadFiles());
+    this.isLoading = true;
+    this.fileService.deleteAllFiles().pipe(
+      finalize(() => this.isLoading = false)
+    ).subscribe(() => this.reloadFiles());
   }
 
 }
