@@ -19,8 +19,8 @@ export class SettingsService {
     return this.settingsHttpService.restart();
   }
 
-  getMotionConfig(): Observable<MotionConfig> {
-    if (this.motionConfig.getValue()) {
+  getMotionConfig(reload?: boolean): Observable<MotionConfig> {
+    if (!reload && this.motionConfig.getValue()) {
       return this.motionConfig;
     }
     return this.settingsHttpService.getMotionConfig().pipe(

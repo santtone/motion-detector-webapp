@@ -4,6 +4,7 @@ import {ToolbarService} from '../app-layout/toolbar/toolbar.service';
 import {SettingsService} from './services/settings.service';
 import {MotionConfig} from './motion-config';
 import {Location} from '@angular/common';
+import {ToolbarAction} from '../app-layout/toolbar/toolbar-action';
 
 @Component({
   selector: 'md-settings',
@@ -21,11 +22,12 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Settings'));
-    this.settings.getMotionConfig().subscribe((config: MotionConfig) => {
-      this.motionConfig = config;
-      this.selectedResolution = this.resolutions.find((r) => r[0] == config.captureWidth && r[1] == config.captureHeight);
-    });
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Settings', [
+      new ToolbarAction(function () {
+        this.findConfiguration(true);
+      }.bind(this), 'refresh')
+    ]));
+    this.findConfiguration();
   }
 
   save() {
@@ -33,6 +35,13 @@ export class SettingsComponent implements OnInit {
     this.motionConfig.captureHeight = this.selectedResolution[1];
     this.settings.saveMotionConfig(this.motionConfig).subscribe(() => {
       this.location.back();
+    });
+  }
+
+  findConfiguration(reload?: boolean) {
+    this.settings.getMotionConfig(reload).subscribe((config: MotionConfig) => {
+      this.motionConfig = config;
+      this.selectedResolution = this.resolutions.find((r) => r[0] == config.captureWidth && r[1] == config.captureHeight);
     });
   }
 

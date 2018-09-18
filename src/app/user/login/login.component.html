@@ -8,7 +8,7 @@
       <mat-icon svgIcon="shield" class="md-login-card-icon"></mat-icon>
       <br>
       <mat-form-field>
-        <input matInput [(ngModel)]="credentials.username" [disabled]="isLoading"
+        <input matInput [(ngModel)]="credentials.username" [disabled]="isLoading" autocomplete="off"
                id="username" mdMoveOnEnter="password" type="text" required placeholder="Username">
       </mat-form-field>
       <mat-form-field>
